@@ -1,11 +1,7 @@
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { LocalPageParams } from './_types';
 
-// export async function generateStaticParams() {
-//   return [{ locale: "en" }, { locale: "ar" }];
-// }
-
-export default async function Home({ params }: any) {
+export default async function Home({ params }: LocalPageParams) {
   // const messages = await getMessages({ locale });
   const { locale } = await params;
   /**
