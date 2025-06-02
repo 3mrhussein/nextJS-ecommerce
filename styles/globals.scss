@@ -1,0 +1,36 @@
+@import './reset';
+@import './variables';
+@import './layout';
+@import './mixins';
+
+/* Global Body Styles */
+body {
+  font-family: var(--font-base);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Example: Using a Layout Variable */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--padding);
+}
+
+/* Example: Using a Mixin */
+.responsive-box {
+  padding: 2rem;
+  background-color: var(--color-primary);
+  color: white;
+//use to add styles to sm screen and below
+  @include screen(sm) {
+    background-color: red;
+  }
+//use to add styles to md screen and upove
+  @include screen(md,min) {
+    background-color: green;
+  }
+}

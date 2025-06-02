@@ -1,0 +1,12 @@
+@import './breakpoints';
+
+@mixin screen($breakpoint, $direction: max) {
+  $value: map-get($breakpoints, $breakpoint);
+  @if $value {
+    @media (#{$direction}-width: $value) {
+      @content;
+    }
+  } @else {
+    @warn "⚠️ Unknown breakpoint: `#{$breakpoint}`";
+  }
+}

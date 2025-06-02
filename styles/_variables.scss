@@ -1,0 +1,19 @@
+/* Light Theme Defaults */
+:root {
+  --color-primary: #0070f3;
+  --color-secondary: #1c1c1e;
+  --color-background: #f5f5f5;
+  --color-text: #333;
+
+  --font-base: 'Inter', sans-serif;
+}
+
+// /* Dark Theme Overrides */
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --color-primary: #0a84ff;
+//     --color-secondary: #ffffff;
+//     --color-background: #1c1c1e;
+//     --color-text: #f5f5f5;
+//   }
+// }

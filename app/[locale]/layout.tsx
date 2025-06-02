@@ -1,4 +1,4 @@
-import './global.css';
+import '../../styles/globals.scss';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, setRequestLocale } from 'next-intl/server';
 import React from 'react';
@@ -56,10 +56,8 @@ export default async function RootLayout({
     <html lang={locale}>
       <body
         style={{
-          fontFamily: `${geistSans.style.fontFamily}, ${geistMono.style.fontFamily}`,
-        }}
+          fontFamily: `${geistSans.style.fontFamily}, ${geistMono.style.fontFamily}`,        }}
       >
-        {' '}
         <div
           style={{
             width: '100vw',
