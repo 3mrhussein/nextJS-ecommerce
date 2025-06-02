@@ -53,7 +53,7 @@ export default async function RootLayout({
   const messages = await getMessages();
 
   return (
-    <html lang={locale}>
+    <html lang={locale} dir={['ar'].includes(locale) ? 'rtl' : 'ltr'}>
       <body
         style={{
           fontFamily: `${geistSans.style.fontFamily}, ${geistMono.style.fontFamily}`,        }}
@@ -66,6 +66,8 @@ export default async function RootLayout({
             alignItems: 'center',
             height: '100vh',
           }}
+
+          
         >
           <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
         </div>
