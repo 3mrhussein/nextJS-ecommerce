@@ -20,6 +20,6 @@ jobs:
         run: |
           echo "Project structure for ${{ github.repository }}:"
           echo "============================================="
-          tree -a -I '.git|node_modules|dist|build|.next|coverage' -L 3
+          tree -a -I '.git|node_modules|dist|build|.next|coverage'
           echo "============================================="
           echo "Done ✅"
