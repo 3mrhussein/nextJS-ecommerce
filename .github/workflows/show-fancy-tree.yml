@@ -1,31 +1,25 @@
-name: 🌳 Fancy Project Tree
+name: 🪵 Show Project Tree
 
 on:
-  workflow_dispatch: # manual trigger
+  workflow_dispatch:  # allows manual trigger from GitHub Actions tab
   push:
-    branches: [ main ] # optional - run automatically on push to main
+    branches: [ main ] # optional, run on every push to main
 
 jobs:
   show-tree:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 🛎️ Checkout Repository
+      - name: 🛎️ Checkout code
         uses: actions/checkout@v4
 
-      - name: 🌈 Install eza (modern exa)
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y eza
+      - name: 📦 Install tree utility
+        run: sudo apt-get update && sudo apt-get install -y tree
 
-      - name: 🌲 Display Fancy Project Tree
+      - name: 🌲 Print Project Tree
         run: |
-          echo "📦 Repository: ${{ github.repository }}"
-          echo "🗓️  Branch: ${{ github.ref_name }}"
-          echo "=============================================="
-          echo "🌳 Project Structure (depth: 3)"
-          echo "=============================================="
-          eza --tree --level=3 --git-ignore --icons --color=always \
-              --ignore-glob='.git|node_modules|dist|build|coverage|.next'
-          echo "=============================================="
-          echo "✅ Done!"
+          echo "Project structure for ${{ github.repository }}:"
+          echo "============================================="
+          tree -a -I '.git|node_modules|dist|build|.next|coverage' -L 3
+          echo "============================================="
+          echo "Done ✅"
