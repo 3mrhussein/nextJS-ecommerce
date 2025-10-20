@@ -1,0 +1,31 @@
+name: 🌳 Fancy Project Tree
+
+on:
+  workflow_dispatch: # manual trigger
+  push:
+    branches: [ main ] # optional - run automatically on push to main
+
+jobs:
+  show-tree:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛎️ Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🌈 Install exa
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y exa
+
+      - name: 🌲 Display Fancy Project Tree
+        run: |
+          echo "📦 Repository: ${{ github.repository }}"
+          echo "🗓️  Branch: ${{ github.ref_name }}"
+          echo "=============================================="
+          echo "🌳 Project Structure (depth: 3)"
+          echo "=============================================="
+          exa --tree --level=3 --git-ignore --icons --color=always \
+              --ignore-glob='.git|node_modules|dist|build|coverage|.next'
+          echo "=============================================="
+          echo "✅ Done!"
