@@ -11,6 +11,9 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  * {
+    box-sizing: border-box;
+  }
 }
 
 /* Example: Using a Layout Variable */
@@ -25,12 +28,12 @@ body {
   padding: 2rem;
   background-color: var(--color-primary);
   color: white;
-//use to add styles to sm screen and below
+  //use to add styles to sm screen and below
   @include screen(sm) {
     background-color: red;
   }
-//use to add styles to md screen and upove
-  @include screen(md,min) {
+  //use to add styles to md screen and upove
+  @include screen(md, min) {
     background-color: green;
   }
 }

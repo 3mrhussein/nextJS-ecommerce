@@ -7,6 +7,10 @@ import { notFound } from 'next/navigation';
 import { ILocale } from '@/i18n/request';
 import localFont from 'next/font/local';
 import { Metadata } from 'next';
+import Logo from '@/components/atoms/logo/logo';
+import Divider from '@/components/atoms/divider/divider';
+import TextField from '@/components/molecules/textField/textField';
+import Header from '@/components/organisms/header/header';
 
 const geistSans = localFont({
   src: '../../public/GeistVF.woff',
@@ -54,21 +58,17 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={['ar'].includes(locale) ? 'rtl' : 'ltr'}>
-      <body
-        style={{
-          fontFamily: `${geistSans.style.fontFamily}, ${geistMono.style.fontFamily}`,        }}
-      >
+      <body style={{ fontFamily: `${geistSans.style.fontFamily}, ${geistMono.style.fontFamily}` }}>
         <div
           style={{
             width: '100vw',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            height: '100vh',
+            minHeight: '100vh',
           }}
-
-          
         >
+          <Logo />
+          <Divider />
+          <TextField id="id" label="label" />
+          <Header />
           <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
         </div>
       </body>

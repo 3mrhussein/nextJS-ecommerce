@@ -1,0 +1,19 @@
+@import '@/styles/_mixins.scss';
+
+.header-main {
+  display: flex;
+  width: 100%;
+  padding: var(--container-padding-md);
+}
+
+.header-search {
+  flex: 1;
+
+  @include screen(md) {
+    flex: 8;
+  }
+}
+
+.header-logo {
+  flex: 1;
+}

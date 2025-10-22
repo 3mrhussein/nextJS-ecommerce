@@ -1,6 +1,6 @@
 @import './breakpoints';
 
-@mixin screen($breakpoint, $direction: max) {
+@mixin screen($breakpoint, $direction: min) {
   $value: map-get($breakpoints, $breakpoint);
   @if $value {
     @media (#{$direction}-width: $value) {
