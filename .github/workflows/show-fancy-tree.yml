@@ -1,0 +1,25 @@
+name: 🪵 Show Project Tree
+
+on:
+  workflow_dispatch:  # allows manual trigger from GitHub Actions tab
+  push:
+    branches: [ main ] # optional, run on every push to main
+
+jobs:
+  show-tree:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛎️ Checkout code
+        uses: actions/checkout@v4
+
+      - name: 📦 Install tree utility
+        run: sudo apt-get update && sudo apt-get install -y tree
+
+      - name: 🌲 Print Project Tree
+        run: |
+          echo "Project structure for ${{ github.repository }}:"
+          echo "============================================="
+          tree -a -I '.git|node_modules|dist|build|.next|coverage'
+          echo "============================================="
+          echo "Done ✅"
